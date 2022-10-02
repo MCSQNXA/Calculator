@@ -66,6 +66,14 @@ public class Calculator {
      * @Description 中缀表达式 转 后缀表达式   Infix expression to suffix expression
      */
     private ArrayList<String> infixToSuffix(String str) {
+        if (str.length() > 2) {//处理 -50+10 变成 0-50+10
+            if (str.charAt(0) == '+') {
+                str = "0" + str;
+            } else if (str.charAt(0) == '-') {
+                str = "0" + str;
+            }
+        }
+
         //结果集合
         ArrayList<String> result = new ArrayList<>();
         //中缀表达式 转 列表
